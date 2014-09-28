@@ -209,7 +209,6 @@
 				ORGANIZATIONNAME = "Nick Toumpelis";
 				TargetAttributes = {
 					CF2BC91E18019D6100C66D15 = {
-						DevelopmentTeam = P5JZPD83BK;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
