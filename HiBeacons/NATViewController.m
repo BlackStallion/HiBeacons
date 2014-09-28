@@ -407,6 +407,7 @@ typedef NS_ENUM(NSUInteger, NTOperationsRow) {
     
     [self createLocationManager];
 
+    [self registerForNotification];
     [self checkLocationAccessForMonitoring];
     
     [self turnOnMonitoring];
@@ -661,6 +662,17 @@ typedef NS_ENUM(NSUInteger, NTOperationsRow) {
             return;
         }
         [self.locationManager requestAlwaysAuthorization];
+    }
+}
+
+#pragma mark - user notification registration
+- (void)registerForNotification {
+    UIApplication *application = [UIApplication sharedApplication];
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationType types = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
+        UIUserNotificationSettings *userNotificationSettings = [UIUserNotificationSettings settingsForTypes:types
+                                                                                                 categories:nil];
+        [application registerUserNotificationSettings:userNotificationSettings];
     }
 }
 
